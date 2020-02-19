@@ -6,11 +6,11 @@ services:
 before_install:
   - docker build -t sbalasani/docker-react -f Dockerfile.dev .
 
-# script:
-#   - docker run sbalasani/docker-react npm run test -- --coverage
-
 script:
-  - docker run -e CI=true sbalasani/docker-react npm run test
+  - docker run sbalasani/docker-react npm run test -- --coverage
+
+# script:
+#   - docker run -e CI=true sbalasani/docker-react npm run test
 
 deploy:
   provider: elasticbeanstalk
